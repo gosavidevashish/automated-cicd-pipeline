@@ -1,0 +1,14 @@
+{
+  "name": "release-console",
+  "version": "1.0.0",
+  "description": "Web service that makes every deployment visible: build, health and release history.",
+  "main": "server.js",
+  "license": "MIT",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "lint": "node --check server.js && node --check public/app.js"
+  }
+}

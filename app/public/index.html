@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Release Console</title>
+  <meta name="description" content="Live build, health and deployment history for this service.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <h1>Release Console</h1>
+        <p class="lede">The build running in this container, and how it got here.</p>
+      </div>
+      <div class="status" id="status" role="status" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="status-text">Checking</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="release-title">
+      <h2 id="release-title">Current release</h2>
+      <dl class="facts" id="release">
+        <div><dt>Build</dt><dd id="f-build">-</dd></div>
+        <div><dt>Commit</dt><dd id="f-commit" class="mono">-</dd></div>
+        <div><dt>Branch</dt><dd id="f-branch">-</dd></div>
+        <div><dt>Environment</dt><dd id="f-env">-</dd></div>
+        <div><dt>Built</dt><dd id="f-built">-</dd></div>
+        <div><dt>Container</dt><dd id="f-host" class="mono">-</dd></div>
+        <div><dt>Runtime</dt><dd id="f-node">-</dd></div>
+        <div><dt>Started</dt><dd id="f-started">-</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="runtime-title">
+      <h2 id="runtime-title">Runtime</h2>
+      <div class="runtime">
+        <dl class="figures">
+          <div><dt>Uptime</dt><dd id="m-uptime">-</dd></div>
+          <div><dt>Requests served</dt><dd id="m-requests">-</dd></div>
+          <div><dt>Server errors</dt><dd id="m-errors">-</dd></div>
+          <div><dt>Memory in use</dt><dd id="m-memory">-</dd></div>
+        </dl>
+        <figure class="trend">
+          <canvas id="trend" width="640" height="150" role="img" aria-label="Memory use since this page was opened"></canvas>
+          <figcaption>Memory use (MB), sampled every 3 seconds while this page is open</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="pipeline-title">
+      <h2 id="pipeline-title">How a change reaches this page</h2>
+      <ol class="pipeline">
+        <li><strong>Push</strong><span>A commit lands on GitHub and Jenkins picks it up.</span></li>
+        <li><strong>Checkout</strong><span>Jenkins fetches that exact commit.</span></li>
+        <li><strong>Test</strong><span>Unit tests run inside a Docker build stage.</span></li>
+        <li><strong>Build</strong><span>The production image is tagged with the build number.</span></li>
+        <li><strong>Smoke test</strong><span>A throwaway container must answer its health check.</span></li>
+        <li><strong>Deploy</strong><span>The old container is swapped for the new one.</span></li>
+        <li><strong>Verify</strong><span>Jenkins confirms the live build number. If not, it rolls back.</span></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="history-title">
+      <h2 id="history-title">Deployment history</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">When</th>
+              <th scope="col">Build</th>
+              <th scope="col">Commit</th>
+              <th scope="col">Environment</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody id="history">
+            <tr><td colspan="6" class="empty">Loading deployments.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Served by <span id="foot-host" class="mono">-</span>. Figures refresh automatically.</p>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "note": "Indicative durations in seconds. After your first successful runs, replace with the values shown in Jenkins Stage View and re-run make_presentation.py.",
+  "stages": [
+    {"name": "Checkout", "seconds": 5},
+    {"name": "Validate tooling", "seconds": 3},
+    {"name": "Unit tests", "seconds": 25},
+    {"name": "Build image", "seconds": 30},
+    {"name": "Smoke test", "seconds": 10},
+    {"name": "Deploy", "seconds": 15},
+    {"name": "Verify", "seconds": 5}
+  ]
+}

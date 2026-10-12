@@ -1,0 +1,11 @@
+.git
+.gitignore
+node_modules
+**/node_modules
+Jenkinsfile
+docs
+scripts
+*.md
+docker-compose.yml
+.env
+*.log

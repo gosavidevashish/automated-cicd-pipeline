@@ -1,0 +1,17 @@
+# Local run for development: docker compose up --build
+# The Jenkins pipeline does NOT use this file; it uses scripts/deploy.sh.
+services:
+  web:
+    build:
+      context: .
+      args:
+        BUILD_NUMBER: local
+        GIT_COMMIT: dev
+        GIT_BRANCH: local
+    image: release-console:dev
+    container_name: release-console-dev
+    ports:
+      - "3000:3000"
+    environment:
+      APP_ENV: development
+    restart: unless-stopped
