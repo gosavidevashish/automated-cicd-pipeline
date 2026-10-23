@@ -13,7 +13,7 @@ docker ps -a --filter "name=^${APP_NAME}$" \
 
 echo
 echo "== Health"
-docker inspect -f '{{if .State.Health}}{{.State.Health.Status}} (failing streak: {{.State.Health.FailingStreak}}){{else}}no health check{{end}}' "$APP_NAME" 2>/dev/null || echo "container not found"
+docker container inspect -f '{{if .State.Health}}{{.State.Health.Status}} (failing streak: {{.State.Health.FailingStreak}}){{else}}no health check{{end}}' "$APP_NAME" 2>/dev/null || echo "container not found"
 
 echo
 echo "== Resources"
