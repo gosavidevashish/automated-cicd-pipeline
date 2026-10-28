@@ -40,7 +40,7 @@ pipeline {
   environment {
     APP_NAME   = 'release-console'
     IMAGE_REPO = 'release-console'
-    HOST_PORT  = '80'
+    HOST_PORT  = '8081'
     DEPLOY_DIR = '/opt/release-console'
   }
 
