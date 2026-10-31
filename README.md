@@ -49,6 +49,7 @@
 | 📦 **0** | runtime dependencies, so builds stay fast and small |
 | 🖐️ **0** | manual steps after `git push` |
 
+<br>
 
 ## 🎯 Why this project
 
@@ -61,6 +62,8 @@ Releasing software by hand is slow and easy to get wrong. Someone has to run the
 | A broken release means downtime | The previous version is restored automatically |
 | Unclear which version is live | The Release Console shows build, commit and history |
 
+<br>
+
 ## 🧩 What you get
 
 - 🔄 **Hands-free deployment.** Every push to `main` is built, tested and deployed.
@@ -71,6 +74,8 @@ Releasing software by hand is slow and easy to get wrong. Someone has to run the
 - 📝 **Deployment records.** Every success, rollback and failure is written to a log the page displays.
 - 🔒 **Safer containers.** Non-root user, 256 MB memory cap, rotated logs and health checks.
 - ☁️ **Local or cloud.** Deploy to the Jenkins machine, or to AWS EC2 over SSH.
+
+<br>
 
 ## <a id="how-it-works"></a>🛠️ How it works
 
@@ -88,6 +93,8 @@ flowchart LR
   F -.->|unhealthy| R[⏪ Automatic rollback]
 ```
 
+<br>
+
 | # | Stage | What happens | Stops the pipeline when |
 |---|---|---|---|
 | 1 | 📥 **Checkout** | Fetches the exact commit, records its short SHA and branch | Repository or access problem |
@@ -98,6 +105,8 @@ flowchart LR
 | 6 | ☁️ **Push image** | Optional. Publishes to Docker Hub (needed for EC2) | Registry login fails |
 | 7 | 🚢 **Deploy** | Swaps the container and waits for its health check | Unhealthy, so it rolls back |
 | 8 | 🔎 **Verify** | Confirms the live port reports this exact build number | Wrong or missing build |
+
+<br>
 
 ## ⏪ Rollback in action
 
@@ -111,6 +120,8 @@ flowchart TD
   H -->|No| RB[Remove new container, restart the old one]
   RB --> LOG[Record: rolled_back ⏪, mark the build failed]
 ```
+
+<br>
 
 ## 🚀 Quick start
 
@@ -129,6 +140,8 @@ Or with Docker:
 ```bash
 docker compose up --build     # http://localhost:3000
 ```
+
+<br>
 
 ### 🏗️ Build the full pipeline
 
@@ -243,6 +256,8 @@ To add or override environment variables on the server, create `/opt/release-con
 
 </details>
 
+<br>
+
 ## 🎬 Live demo
 
 **Make a change and watch it go live by itself:**
@@ -266,6 +281,8 @@ sed -i '/SIMULATE_STARTUP_FAILURE/d' /opt/release-console/app.env
 
 A break-the-tests demo and a printable script are in [docs/DEMO-SCRIPT.md](docs/DEMO-SCRIPT.md).
 
+<br>
+
 ## 📡 Application endpoints
 
 | Endpoint | Returns |
@@ -284,6 +301,8 @@ Every deployment appends one line to `/opt/release-console/deployments.log`:
 
 `status` is `succeeded`, `rolled_back` or `failed`.
 
+<br>
+
 ## 🔭 Monitoring and logs
 
 | I want to... | Command |
@@ -294,6 +313,8 @@ Every deployment appends one line to `/opt/release-console/deployments.log`:
 | See CPU and memory | `docker stats release-console` |
 | Ask the app if it's alive | `curl -s localhost/health` |
 | Review pipeline history | Jenkins job page: **Stages** and **Console Output** |
+
+<br>
 
 ## 🩺 Troubleshooting
 
@@ -308,6 +329,8 @@ Every deployment appends one line to `/opt/release-console/deployments.log`:
 
 More in [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
+<br>
+
 ## 🧠 Design decisions
 
 - **Tests run inside the Docker build.** An image cannot exist unless its tests passed.
@@ -316,12 +339,16 @@ More in [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 - **The deploy script writes the history,** so failures and rollbacks are recorded and survive container replacement.
 - **No runtime dependencies** keeps builds fast and removes a class of supply-chain risk.
 
+<br>
+
 ## ⚠️ Limitations
 
 - There is a gap of a few seconds while the old container stops and the new one becomes healthy. Removing it needs two instances behind a load balancer.
 - The `jenkins` user is in the `docker` group, which is effectively root on that machine. That suits a lab; production would use a dedicated build agent.
 - Jenkins polls GitHub every 2 minutes because a local VM cannot receive webhooks. A public server can use a GitHub webhook instead.
 - AWS EC2 deployment is built into the `Jenkinsfile` (`DEPLOY_TARGET=ec2`), but the walkthrough above runs on a local VM.
+
+<br>
 
 ## 🗺️ Roadmap
 
@@ -333,6 +360,8 @@ More in [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 - [ ] Chat or email notifications on success and failure
 - [ ] Kubernetes deployment target
 - [ ] Prometheus and Grafana dashboards
+
+<br>
 
 ## 🎓 Skills this project covers
 
@@ -346,6 +375,8 @@ More in [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 ![AWS](https://img.shields.io/badge/AWS%20EC2-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
 
 CI/CD design, containerization, deployment automation, health checks, rollback strategy and troubleshooting.
+
+<br>
 
 ## 📁 Repository layout
 
@@ -366,6 +397,8 @@ CI/CD design, containerization, deployment automation, health checks, rollback s
 ├── Jenkinsfile             ⚙️ Declarative pipeline
 └── docker-compose.yml      🧪 Local run for development (not used by Jenkins)
 ```
+
+<br>
 
 ## 📚 More documentation
 
