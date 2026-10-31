@@ -71,6 +71,8 @@ Releasing software by hand is slow and easy to get wrong. Someone has to run the
 - 🔒 **Safer containers.** Non-root user, 256 MB memory cap, rotated logs and health checks.
 - ☁️ **Local or cloud.** Deploy to the Jenkins machine, or to AWS EC2 over SSH.
 
+<a id="how-it-works"></a>
+
 ## 🛠️ How it works
 
 ```mermaid
