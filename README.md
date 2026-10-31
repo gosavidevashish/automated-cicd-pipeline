@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Automated CI/CD Pipeline
+# 🚀 AutoSage
 
 ### Push. Test. Ship. Verify. Rewind if needed.
 
