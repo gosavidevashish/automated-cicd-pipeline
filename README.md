@@ -49,6 +49,7 @@
 | 📦 **0** | runtime dependencies, so builds stay fast and small |
 | 🖐️ **0** | manual steps after `git push` |
 
+
 ## 🎯 Why this project
 
 Releasing software by hand is slow and easy to get wrong. Someone has to run the tests, build the package, copy it to a server, restart it, and hope nothing breaks. Afterwards, nobody can say for sure which version is running.
