@@ -23,7 +23,7 @@
 <br>
 
 [Why](#-why-this-project) &nbsp;•&nbsp;
-[How it works](#-how-it-works) &nbsp;•&nbsp;
+[How it works](#how-it-works) &nbsp;•&nbsp;
 [Quick start](#-quick-start) &nbsp;•&nbsp;
 [Live demo](#-live-demo) &nbsp;•&nbsp;
 [Rollback](#-rollback-in-action) &nbsp;•&nbsp;
@@ -71,7 +71,7 @@ Releasing software by hand is slow and easy to get wrong. Someone has to run the
 - 🔒 **Safer containers.** Non-root user, 256 MB memory cap, rotated logs and health checks.
 - ☁️ **Local or cloud.** Deploy to the Jenkins machine, or to AWS EC2 over SSH.
 
-## 🔧 How it works
+## 🛠️ How it works
 
 ```mermaid
 flowchart LR
