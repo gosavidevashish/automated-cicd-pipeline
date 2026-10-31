@@ -378,6 +378,19 @@ CI/CD design, containerization, deployment automation, health checks, rollback s
 
 <br>
 
+   ## 📚 More documentation
+
+   | Document | What's inside |
+   |---|---|
+   | [docs/SETUP-GUIDE.md](docs/SETUP-GUIDE.md) | Environment setup for VMware and EC2 |
+   | [docs/CICD-WORKFLOW.md](docs/CICD-WORKFLOW.md) | The pipeline explained stage by stage |
+   | [docs/GIT-WORKFLOW.md](docs/GIT-WORKFLOW.md) | Branching and commit conventions |
+   | [docs/DEMO-SCRIPT.md](docs/DEMO-SCRIPT.md) | Three live demonstrations |
+   | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Symptoms, causes and fixes |
+   | [docs/presentation/](docs/presentation/) | Project presentation (PDF) and its generator |
+
+<br>
+
 ## 📁 Repository layout
 
 ```
@@ -397,19 +410,6 @@ CI/CD design, containerization, deployment automation, health checks, rollback s
 ├── Jenkinsfile             ⚙️ Declarative pipeline
 └── docker-compose.yml      🧪 Local run for development (not used by Jenkins)
 ```
-
-<br>
-
-## 📚 More documentation
-
-| Document | What's inside |
-|---|---|
-| [docs/SETUP-GUIDE.md](docs/SETUP-GUIDE.md) | Environment setup for VMware and EC2 |
-| [docs/CICD-WORKFLOW.md](docs/CICD-WORKFLOW.md) | The pipeline explained stage by stage |
-| [docs/GIT-WORKFLOW.md](docs/GIT-WORKFLOW.md) | Branching and commit conventions |
-| [docs/DEMO-SCRIPT.md](docs/DEMO-SCRIPT.md) | Three live demonstrations |
-| [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Symptoms, causes and fixes |
-| [docs/presentation/](docs/presentation/) | Project presentation (PDF) and its generator |
 
 <div align="center">
 
